@@ -32,6 +32,8 @@ defmodule BananaBank.Users.User do
     changeset
     |> validate_required(fields)
     |> validate_length(:name, min: 3)
+    |> validate_length(:cep, min: 8)
+    |> validate_length(:password, min: 4)
     |> validate_format(:email, ~r/@/)
     |> add_password_hash()
   end
