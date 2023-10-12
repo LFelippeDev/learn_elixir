@@ -17,7 +17,13 @@ defmodule BananaBankWeb.ErrorJSON do
   def error(%{status: :not_found}) do
     %{
       status: :not_found,
-      message: "Uset not found"
+      message: "Resource not found"
+    }
+  end
+
+  def error(%{status: status}) do
+    %{
+      status: status
     }
   end
 
