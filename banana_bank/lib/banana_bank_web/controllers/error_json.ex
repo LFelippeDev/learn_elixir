@@ -27,6 +27,12 @@ defmodule BananaBankWeb.ErrorJSON do
     }
   end
 
+  def error(%{msg: msg}) do
+    %{
+      message: msg
+    }
+  end
+
   def error(%{changeset: changeset}) do
     %{
       errors: Changeset.traverse_errors(changeset, &translate_errors/1)
